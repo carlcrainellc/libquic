@@ -56,6 +56,14 @@ extern "C"
 #define IPV6_RECVPKTINFO IPV6_PKTINFO
 #endif
 
+// MinGW: IP_ECN/IPV6_ECN live in ws2ipdef.h (value 50); headers often omit them.
+#ifndef IP_ECN
+#define IP_ECN 50
+#endif
+#ifndef IPV6_ECN
+#define IPV6_ECN 50
+#endif
+
 #else  // not windows
 
 #define QUIC_CMSG_DATA(c) CMSG_DATA(c)
